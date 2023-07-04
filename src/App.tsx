@@ -1,25 +1,27 @@
-import { useState } from 'react'
-import  {Slider}  from './components/slider';
-import mainpage from './images/mainpage.jfif';
+import React from "react";
+import { Routes, Route } from "react-router";
+import { BrowserRouter } from "react-router-dom";
+import Website from "./pages/Website";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import DashBoard from "./pages/VendorDashBoard";
+import GeoChart from "./components/Charts/GeoChart";
+import Map from "./components/Map/Map";
 
 function App() {
-
   return (
-    
-    <div className=" flex flex-col  bg-slate-600 w-screen h-screen">
-      <div className='flex justify-center items-center bg-pink-400 p-1 w-full '>
-        $6 EXPRESS COURIER. FREE SHIPPING FOR ORDERS $200+. GIFTED HEBE TOTE BAG WITH PURCHASES $250+ 
-      </div>
-      <div className=''>
-      {/* <img src={mainpage} className="w-full h-1/2"></img> */}
-      <Slider/>
-      </div>
-      <div>
-        
-      </div>
+    <div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Login />}></Route>
+          <Route path="/website" element={<Website />}></Route>
+          <Route path="/account/register" element={<Register />}></Route>
+          <Route path="/vendor/dashboard" element={<DashBoard />}></Route>
+          <Route path="/map" element={<Map />}></Route>
+        </Routes>
+      </BrowserRouter>
     </div>
-    
-  )
+  );
 }
 
-export default App
+export default App;
